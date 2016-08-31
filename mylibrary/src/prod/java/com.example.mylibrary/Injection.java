@@ -5,7 +5,7 @@ package com.example.mylibrary;
  */
 public class Injection {
 
-    int provideInteger() {
+    public int provideInteger() {
         return 100;
     }
 }

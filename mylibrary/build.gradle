@@ -17,6 +17,8 @@ android {
         }
     }
 
+    defaultPublishConfig "productionRelease"
+    publishNonDefault true // critical!!! If you want to use flavors in a library project.
     productFlavors {
         prod {
         }
