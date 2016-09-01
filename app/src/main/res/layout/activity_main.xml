@@ -13,8 +13,17 @@
     <TextView
         android:id="@+id/tvMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:gravity="center"
         android:textSize="25sp"
         android:text="Hello World!"/>
+
+    <Button
+        android:layout_below="@id/tvMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:onClick="onButtonClicked"
+        android:id="@+id/button"
+       />
 </RelativeLayout>
