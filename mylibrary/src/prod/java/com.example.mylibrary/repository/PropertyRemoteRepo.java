@@ -3,8 +3,14 @@ package com.example.mylibrary.repository;
 import java.util.List;
 
 import com.example.mylibrary.model.Property;
+import com.example.mylibrary.parsing.SearchResult;
 import com.example.mylibrary.repository.base.Repository;
 import com.example.mylibrary.repository.base.Specification;
+import com.google.gson.Gson;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 /**
@@ -46,6 +52,27 @@ public class PropertyRemoteRepo implements Repository<Property> {
     @Override
     public List<Property> query(Specification specification) throws Exception {
 
+        String url = "https://rest.domain.com.au/searchservice.svc/mapsearch?mode=buy&sub=Bondi&pcodes=2026&state=NSW";
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = null;
+        response = new OkHttpClient().newCall(request).execute();
+
+        if (response.isSuccessful()) {
+
+            Gson gson = new Gson();
+
+            SearchResult searchResult = gson.fromJson(response.body().string(), SearchResult.class);
+            if (searchResult == null || searchResult.listingResults == null || searchResult.listingResults.listings == null) {
+                return null;
+            }
+
+            return searchResult.listingResults.listings;
+        } else {
+            // TODO: 15/05/2016  throw exception
+        }
         return null;
     }
 }
