@@ -1,15 +1,15 @@
 package com.example.ericliu.myapplication;
 
-import java.util.List;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.mylibrary.Injection;
+import com.example.ericliu.midlayerlib.MidLayer;
 import com.example.mylibrary.PropertyDataCentre;
 import com.example.mylibrary.model.Property;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvMain = (TextView) findViewById(R.id.tvMain);
-        tvMain.setText("The Magic Number is: " + new Injection().provideProductFlavor());
+        tvMain.setText("The Magic Number is: " + new MidLayer().playLib());
 
     }
 
