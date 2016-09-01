@@ -36,6 +36,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
-    mockCompile project(path:':mylibrary', configuration:'mockDebug')
-    prodCompile project(path:':mylibrary', configuration:'prodDebug')
+    mockCompile project(path:':mylibrary', configuration:'mockRelease')
+    prodCompile project(path:':mylibrary', configuration:'prodRelease')
 }
