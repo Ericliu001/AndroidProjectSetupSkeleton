@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvMain = (TextView) findViewById(R.id.tvMain);
-        tvMain.setText("The Magic Number is: " + new Injection().provideInteger());
+        tvMain.setText("The Magic Number is: " + new Injection().provideProductFlavor());
 
     }
 
